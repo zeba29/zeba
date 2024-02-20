@@ -1,0 +1,12 @@
+import pandas as pd 
+from sklearn.preprocessing import LabelEncoder
+df=pd.read_csv('test.csv')
+print(df)
+en=LabelEncoder()
+enlbl=en.fit_transform(df.Insu_status)
+df.Insu_status=enlbl
+print(df)
+dl=en.inverse_transform(enlbl)
+print(dl)
+df=df.drop(['Name'],axis=1)
+print(df)
